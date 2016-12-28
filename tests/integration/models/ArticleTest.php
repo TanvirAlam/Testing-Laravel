@@ -21,5 +21,7 @@ class ArticleTest extends TestCase
 
         //Then
         $this->assertEquals($mostPopular->id, $articles->first()->id);
+
+        $this->assertCount(3, $articles);
     }
 }
