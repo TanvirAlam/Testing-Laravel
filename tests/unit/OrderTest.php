@@ -18,4 +18,18 @@ class OrderTest extends PHPUnit_Framework_TestCase
 
         $this->assertCount(2, $order->products());
     }
+
+    /** @test  */
+    function anOrderCanDetermineTheTotalCostOfAllItsProducts()
+    {
+        $order = new Order;
+
+        $product1 = new Product('Fallout 4', 59);
+        $product2 = new Product('Fallout 9', 7);
+
+        $order->add($product1);
+        $order->add($product2);
+
+        $this->assertEquals(66, $order->total());
+    }
 }
